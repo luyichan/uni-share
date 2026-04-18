@@ -1,0 +1,1343 @@
+:root {
+  --bg: #f8f7f4;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --text: #171512;
+  --text-soft: rgba(23, 21, 18, 0.74);
+  --line: rgba(23, 21, 18, 0.12);
+  --shadow: 0 20px 60px rgba(23, 21, 18, 0.08);
+  --radius: 28px;
+  --shell: min(1392px, calc(100vw - 48px));
+  --shell-wide: min(1440px, calc(100vw - 48px));
+  --shell-copy: min(1024px, calc(100vw - 48px));
+  --font-body: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Noto Sans JP", sans-serif;
+  --font-ui: var(--font-instrument), "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.shell,
+.shell-wide,
+.shell-copy {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.shell {
+  max-width: var(--shell);
+}
+
+.shell-wide {
+  max-width: var(--shell-wide);
+}
+
+.shell-copy {
+  max-width: var(--shell-copy);
+}
+
+.site-header {
+  position: relative;
+  background: #fff;
+}
+
+.site-header__inner {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.site-logo {
+  flex: 0 0 auto;
+  width: 116px;
+}
+
+.site-logo img {
+  width: 116px;
+  height: auto;
+}
+
+.site-nav,
+.site-nav__group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-nav {
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  gap: 80px;
+  min-width: max-content;
+}
+
+.site-nav__group {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.site-nav__link {
+  color: #000;
+  line-height: 38px;
+  transition: color 160ms ease;
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible,
+.site-nav__link.is-active {
+  color: var(--text);
+}
+
+.home-page {
+  background: #fff;
+  color: #000;
+}
+
+.home-main {
+  width: 100%;
+}
+
+.home-image-block,
+.home-bio,
+.home-wide-image-block {
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-image-block {
+  height: 1044px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.home-image-grid {
+  width: 100%;
+  max-width: 1392px;
+  min-height: 1px;
+  height: 100%;
+  display: flex;
+  gap: 24px;
+  box-shadow: 0 4px 4px rgba(221, 221, 221, 0.25);
+}
+
+.home-image-cell {
+  position: relative;
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 100%;
+}
+
+.home-image-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-bio {
+  padding-top: 56px;
+  padding-bottom: 56px;
+  overflow: hidden;
+}
+
+.home-hero {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.home-hero__logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.home-hero__text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.home-title {
+  margin: 0;
+  min-height: 40px;
+  min-width: 100%;
+  width: min-content;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -1.6px;
+  font-style: normal;
+  text-align: center;
+}
+
+.home-manifesto {
+  min-width: 100%;
+  width: min-content;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  font-style: normal;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.home-manifesto__line {
+  margin: 0 0 16px;
+  line-height: 24px;
+}
+
+.home-manifesto__line:last-of-type {
+  margin-bottom: 0;
+}
+
+.home-manifesto__line--blank {
+  color: transparent;
+}
+
+.home-wide-image-block {
+  height: 821px;
+  padding: 24px;
+}
+
+.home-wide-image {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  max-height: 773px;
+  min-height: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-wide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: static;
+}
+
+.site-news {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.site-news__inner {
+  width: 100%;
+  max-width: 1440px;
+  padding: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-news__content {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-news__copy {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.site-news__title {
+  margin: 0;
+  width: 100%;
+  min-height: 40px;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -1.6px;
+  font-style: normal;
+  text-align: center;
+}
+
+.site-news__text {
+  margin: 0;
+  width: 100%;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  font-style: normal;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.about-page {
+  background: #fff;
+  color: #000;
+}
+
+.about-main {
+  width: 100%;
+}
+
+.about-intro,
+.about-story,
+.about-closing {
+  width: 100%;
+}
+
+.about-intro {
+  padding: 224px 24px 56px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-intro__inner,
+.about-story__inner,
+.about-closing__inner {
+  width: 100%;
+  max-width: 1392px;
+}
+
+.about-intro__copy {
+  width: min(800px, 100%);
+}
+
+.about-intro__text,
+.about-story__text {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 40px;
+  color: #000;
+}
+
+.about-intro__text {
+  letter-spacing: 0.48px;
+}
+
+.about-image-block {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-image-block__inner--wide,
+.about-image-block__inner--medium {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-image-block__inner--wide {
+  max-width: 1392px;
+}
+
+.about-image-block__inner--medium {
+  max-width: 800px;
+}
+
+.about-image {
+  width: 100%;
+  position: relative;
+}
+
+.about-image--wide {
+  max-width: 1392px;
+  height: 773px;
+  max-height: 773px;
+  aspect-ratio: 1392 / 773;
+}
+
+.about-image--medium {
+  max-width: 800px;
+  height: 628px;
+  max-height: 628px;
+  aspect-ratio: 800 / 628;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.about-image--layered {
+  overflow: hidden;
+}
+
+.about-image__background,
+.about-image__foreground {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.about-image__background {
+  object-fit: cover;
+}
+
+.about-image__foreground {
+  object-fit: fill;
+}
+
+.about-story,
+.about-closing {
+  padding: 56px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-story__inner,
+.about-closing__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.about-story__inner {
+  justify-content: space-between;
+}
+
+.about-closing__inner {
+  justify-content: flex-end;
+}
+
+.about-story__lead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 0 0 auto;
+}
+
+.about-story__title {
+  width: 400px;
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -1.6px;
+  color: #000;
+}
+
+.about-story__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-story__logo img {
+  width: 146px;
+  height: 48px;
+}
+
+.about-story__columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 0 0 auto;
+}
+
+.about-story__text {
+  width: 400px;
+  max-width: 400px;
+  letter-spacing: 0.48px;
+}
+
+.about-story__column {
+  width: 400px;
+  max-width: 400px;
+}
+
+.about-story__text--stacked {
+  min-height: 0;
+  margin-bottom: 24px;
+}
+
+.about-story__text--small {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+}
+
+.about-story__text--stacked-small {
+  margin-bottom: 16px;
+}
+
+.about-story__text--blank {
+  min-height: 0;
+  color: transparent;
+}
+
+.collection-page {
+  background: #fff;
+  color: #000;
+}
+
+.collection-main {
+  width: 100%;
+}
+
+.collection-wall,
+.collection-backnumber {
+  width: 100%;
+}
+
+.collection-wall {
+  padding: 56px 24px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 4px rgba(214, 214, 214, 0.25);
+}
+
+.collection-wall__inner {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.collection-wall__grid {
+  width: min(1388px, 100%);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: flex-start;
+  column-gap: calc(100% * 180 / 1388);
+  row-gap: 56px;
+}
+
+.collection-wall__item {
+  width: 100%;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.collection-wall__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.collection-backnumber {
+  padding: 56px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.collection-backnumber__inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.collection-backnumber__card {
+  width: 448px;
+  height: 725px;
+  max-width: 448px;
+  box-shadow: 0 4px 4px rgba(214, 214, 214, 0.25);
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.collection-backnumber__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.stocklist-page {
+  background: #fff;
+  color: #000;
+}
+
+.stocklist-main {
+  width: 100%;
+}
+
+.stocklist-hero,
+.stocklist-listings,
+.stocklist-image-block {
+  width: 100%;
+}
+
+.stocklist-hero {
+  padding: 104px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stocklist-hero__inner {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.stocklist-hero__logo {
+  width: 100%;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.stocklist-hero__logo img {
+  width: 146px;
+  height: 48px;
+}
+
+.stocklist-hero__copy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.stocklist-hero__title {
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -0.32px;
+  text-align: center;
+  color: #000;
+}
+
+.stocklist-hero__subtitle {
+  width: 100%;
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  text-align: center;
+  color: #000;
+}
+
+.stocklist-listings {
+  padding: 56px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.stocklist-listings__inner {
+  width: 100%;
+  max-width: 1440px;
+  border-radius: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stocklist-listings__columns {
+  width: 100%;
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  justify-content: space-between;
+}
+
+.stocklist-column {
+  width: 100%;
+  max-width: 512px;
+  min-width: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.stocklist-entry {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stocklist-entry + .stocklist-entry {
+  margin-top: 24px;
+}
+
+.stocklist-entry__name {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -0.32px;
+  color: #000;
+}
+
+.stocklist-entry__name--jp {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: -1.6px;
+}
+
+.stocklist-entry__handle {
+  display: block;
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.stocklist-image-block {
+  height: 821px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stocklist-image-block__image {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  max-height: 773px;
+  min-height: 1px;
+  flex: 1 0 0;
+}
+
+.stocklist-image-block__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stocklist-entry a:hover,
+.stocklist-entry a:focus-visible {
+  color: var(--text);
+}
+
+.site-footer {
+  height: 400px;
+  padding: 56px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff;
+}
+
+.site-footer__inner {
+  width: 100%;
+  max-width: 1392px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.site-footer__links a {
+  line-height: 38px;
+  white-space: nowrap;
+}
+
+.site-footer__social-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.site-footer__social {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.site-instagram-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.site-instagram-icon__vector {
+  position: absolute;
+  inset: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.site-instagram-icon__vector--inner {
+  inset: 24.32%;
+  width: auto;
+  height: auto;
+}
+
+.site-instagram-icon__vector--dot {
+  inset: 17.3% 17.3% 70.7% 70.7%;
+  width: auto;
+  height: auto;
+}
+
+.site-footer__logo-row {
+  width: 100%;
+  height: 72px;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-footer__logo {
+  width: 146px;
+  height: 48px;
+  flex: 0 0 auto;
+}
+
+.site-footer__logo img {
+  width: 146px;
+  height: 48px;
+}
+
+@media (max-width: 1080px) {
+  .collection-wall__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 56px;
+    row-gap: 40px;
+  }
+
+  .site-nav {
+    gap: 16px;
+  }
+
+  .site-footer {
+    height: auto;
+    min-height: 400px;
+  }
+
+  .site-footer__inner {
+    padding: 0;
+  }
+
+  .home-image-block {
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .home-image-grid {
+    height: auto;
+    gap: 16px;
+  }
+
+  .home-image-cell {
+    height: auto;
+    aspect-ratio: 684 / 932;
+  }
+
+  .home-bio {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .home-hero {
+    gap: 32px;
+  }
+
+  .home-title,
+  .home-manifesto {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .home-wide-image-block {
+    height: auto;
+    padding: 24px;
+  }
+
+  .home-wide-image {
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1392 / 773;
+  }
+
+  .site-news__inner {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .about-intro {
+    padding-top: 120px;
+    padding-bottom: 48px;
+  }
+
+  .about-intro__copy {
+    width: min(100%, 800px);
+  }
+
+  .about-intro__text,
+  .about-story__text {
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+  .about-image--wide,
+  .about-image--medium {
+    height: auto;
+    max-height: none;
+  }
+
+  .about-story,
+  .about-closing {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .about-story__inner,
+  .about-closing__inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .about-story__lead {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .about-story__title {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .about-story__columns {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .about-story__text,
+  .about-story__column {
+    width: 100%;
+    max-width: none;
+  }
+
+  .about-story__text--small {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+  }
+
+  .stocklist-hero {
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+
+  .stocklist-hero__inner {
+    gap: 32px;
+  }
+
+  .stocklist-listings {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .stocklist-listings__columns {
+    gap: 24px;
+  }
+
+  .stocklist-column {
+    max-width: none;
+  }
+
+  .stocklist-entry__name {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .stocklist-entry__handle {
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.24px;
+  }
+
+  .stocklist-image-block {
+    height: auto;
+    padding: 24px;
+  }
+
+  .stocklist-image-block__image {
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1392 / 773;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header__inner,
+  .site-nav,
+  .site-nav__group {
+    display: grid;
+  }
+
+  .site-header__inner {
+    padding: 1rem 0;
+    gap: 12px;
+  }
+
+  .site-nav {
+    justify-items: start;
+    gap: 10px;
+  }
+
+  .site-nav__group {
+    gap: 14px;
+    grid-auto-flow: row;
+  }
+
+  .collection-wall {
+    padding: 40px 24px;
+  }
+
+  .collection-wall__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 24px;
+  }
+
+  .home-image-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 16px;
+  }
+
+  .home-image-cell {
+    height: auto;
+    aspect-ratio: 684 / 932;
+  }
+
+  .home-image-block,
+  .home-bio,
+  .home-wide-image-block {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .home-image-block {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    height: auto;
+  }
+
+  .home-bio {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .home-hero {
+    gap: 24px;
+  }
+
+  .home-hero__logo {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .home-wide-image-block {
+    height: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .home-wide-image {
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1392 / 773;
+  }
+
+  .site-news__inner {
+    padding: 40px 16px;
+  }
+
+  .home-title {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -1.2px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .home-manifesto {
+    width: 100%;
+    min-width: 0;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.24px;
+  }
+
+  .home-manifesto__line {
+    margin-bottom: 12px;
+    line-height: 22px;
+  }
+
+  .site-news__title {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -1.2px;
+  }
+
+  .site-news__text {
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.24px;
+  }
+
+  .about-intro {
+    padding: 88px 16px 40px;
+  }
+
+  .about-intro__text {
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.36px;
+  }
+
+  .about-image-block {
+    padding: 16px;
+  }
+
+  .about-image--wide,
+  .about-image--medium {
+    height: auto;
+    max-height: none;
+  }
+
+  .about-story,
+  .about-closing {
+    padding: 40px 16px;
+  }
+
+  .about-story__inner,
+  .about-closing__inner,
+  .about-story__columns {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-story__lead {
+    gap: 16px;
+  }
+
+  .about-story__title {
+    width: 100%;
+    max-width: none;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -1.2px;
+  }
+
+  .about-story__logo {
+    align-items: flex-start;
+  }
+
+  .about-story__text {
+    width: 100%;
+    max-width: none;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.36px;
+  }
+
+  .about-story__text--small {
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.3px;
+  }
+
+  .about-story__text--stacked,
+  .about-story__text--stacked-small {
+    margin-bottom: 0;
+  }
+
+  .stocklist-hero {
+    padding: 72px 16px 40px;
+  }
+
+  .stocklist-hero__inner {
+    gap: 24px;
+  }
+
+  .stocklist-hero__logo {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .stocklist-hero__copy {
+    gap: 16px;
+  }
+
+  .stocklist-hero__title {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.28px;
+  }
+
+  .stocklist-hero__subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.24px;
+  }
+
+  .stocklist-listings {
+    padding: 40px 16px;
+  }
+
+  .stocklist-listings__columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .stocklist-column {
+    padding: 0;
+  }
+
+  .stocklist-entry + .stocklist-entry {
+    margin-top: 20px;
+  }
+
+  .stocklist-entry__name {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+  }
+
+  .stocklist-entry__handle {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+  }
+
+  .stocklist-image-block {
+    height: auto;
+    padding: 16px;
+  }
+
+  .stocklist-image-block__image {
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1392 / 773;
+  }
+
+  .site-footer {
+    height: auto;
+    min-height: 0;
+    padding: 40px 16px;
+  }
+
+  .site-footer__inner {
+    padding: 0;
+  }
+
+}
