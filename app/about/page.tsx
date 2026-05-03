@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { NewsBlock, SiteFooter, SiteHeader } from "@/components/site-shell";
 
-const siteLogo = "/brand/unishare-logo.svg";
 const aboutWideImage = "/site-assets/about/image.png";
 const aboutMediumImage = "/site-assets/about/image-1.png";
 const aboutClosingImage = "/site-assets/about/image-2.png";
@@ -48,9 +47,6 @@ export default function AboutPage() {
           <div className="about-story__inner">
             <div className="about-story__lead">
               <h1 className="about-story__title">{sectionTitle}</h1>
-              <div className="about-story__logo">
-                <img src={siteLogo} alt="Uni-Share" width={146} height={48} />
-              </div>
             </div>
             <div className="about-story__columns">
               <p className="about-story__text about-story__text--small">{firstColumnText}</p>
