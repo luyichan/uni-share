@@ -1,10 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-const siteLogo = "/site-assets/shared/logo.png";
-const figmaInstagramVector = "https://www.figma.com/api/mcp/asset/41e0a699-4955-44f0-b95e-136c323b85c7";
-const figmaInstagramVectorInner = "https://www.figma.com/api/mcp/asset/a3edd3fc-e273-48b8-b608-600935addb1c";
-const figmaInstagramVectorDot = "https://www.figma.com/api/mcp/asset/90d15eaa-e3df-4230-83d7-5cb1e78f3a77";
+const siteLogo = "/brand/unishare-logo-nav.png";
 
 const primaryLinks = [
   { href: "/about", label: "About" },
@@ -16,34 +13,6 @@ const secondaryLinks = [
   { href: "https://www.instagram.com/uni_share/", label: "Instagram" },
   { href: "https://unisharesite.thebase.in", label: "BASE" },
 ];
-
-function InstagramIcon() {
-  return (
-    <span className="site-instagram-icon" aria-hidden="true">
-      <img
-        className="site-instagram-icon__vector"
-        src={figmaInstagramVector}
-        alt=""
-        width={40}
-        height={40}
-      />
-      <img
-        className="site-instagram-icon__vector site-instagram-icon__vector--inner"
-        src={figmaInstagramVectorInner}
-        alt=""
-        width={20.544}
-        height={20.544}
-      />
-      <img
-        className="site-instagram-icon__vector site-instagram-icon__vector--dot"
-        src={figmaInstagramVectorDot}
-        alt=""
-        width={4.799}
-        height={4.799}
-      />
-    </span>
-  );
-}
 
 export function SiteHeader({ currentPath }: { currentPath: string }) {
   return (
@@ -114,25 +83,24 @@ export function NewsBlock({ className }: { className?: string }) {
 }
 
 export function SiteFooter() {
+  const footerLinks = [...primaryLinks, ...secondaryLinks];
+
   return (
     <footer className="site-footer">
       <div className="shell site-footer__inner">
         <nav className="site-footer__links" aria-label="Footer navigation">
-          <Link href="/about">ABOUT</Link>
-          <Link href="/collection">COLLECTION</Link>
-          <Link href="/stocklist">STOCKLIST</Link>
+          {footerLinks.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link key={link.href} href={link.href}>
+                {link.label.toUpperCase()}
+              </Link>
+            ) : (
+              <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                {link.label.toUpperCase()}
+              </a>
+            ),
+          )}
         </nav>
-        <div className="site-footer__social-row">
-          <a
-            className="site-footer__social"
-            href="https://www.instagram.com/uni_share/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-          >
-            <InstagramIcon />
-          </a>
-        </div>
         <div className="site-footer__logo-row">
           <div className="site-footer__logo">
             <img src={siteLogo} alt="Uni-Share" width={146} height={48} />

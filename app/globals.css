@@ -840,45 +840,6 @@ img {
   white-space: nowrap;
 }
 
-.site-footer__social-row {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.site-footer__social {
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-}
-
-.site-instagram-icon {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  display: block;
-}
-
-.site-instagram-icon__vector {
-  position: absolute;
-  inset: 0;
-  width: 40px;
-  height: 40px;
-}
-
-.site-instagram-icon__vector--inner {
-  inset: 24.32%;
-  width: auto;
-  height: auto;
-}
-
-.site-instagram-icon__vector--dot {
-  inset: 17.3% 17.3% 70.7% 70.7%;
-  width: auto;
-  height: auto;
-}
-
 .site-footer__logo-row {
   width: 100%;
   height: 72px;
