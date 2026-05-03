@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-const siteLogo = "/site-assets/shared/logo.png";
+const siteLogo = "/brand/unishare-logo-nav.png";
 
 const primaryLinks = [
   { href: "/about", label: "About" },

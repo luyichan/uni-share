@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { NewsBlock, SiteFooter, SiteHeader } from "@/components/site-shell";
 
-const siteLogo = "/site-assets/shared/logo.png";
+const siteLogo = "/brand/unishare-logo-nav.png";
 const aboutWideImage = "/site-assets/about/image.png";
 const aboutMediumImage = "/site-assets/about/image-1.png";
 const aboutClosingImage = "/site-assets/about/image-2.png";

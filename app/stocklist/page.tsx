@@ -2,7 +2,7 @@
 import type { ReactNode } from "react";
 import { NewsBlock, SiteFooter, SiteHeader } from "@/components/site-shell";
 
-const siteLogo = "/site-assets/shared/logo.png";
+const siteLogo = "/brand/unishare-logo-nav.png";
 const stocklistImage = "/site-assets/stocklist/image.png";
 
 type StocklistItem = {
