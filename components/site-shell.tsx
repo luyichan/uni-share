@@ -61,19 +61,14 @@ export function NewsBlock({ className }: { className?: string }) {
   return (
     <section
       className={["site-news", className].filter(Boolean).join(" ")}
-      data-node-id="41:73"
+      data-node-id="363:416"
       data-name="News Block"
     >
-      <div className="site-news__inner" data-node-id="2009:453">
-        <div className="site-news__content" data-node-id="2009:454">
-          <div className="site-news__copy" data-node-id="2009:457">
-            <p className="site-news__title" data-node-id="2009:458">
+      <div className="site-news__inner" data-node-id="I363:416;41:65">
+        <div className="site-news__content" data-node-id="I363:416;41:65;41:56">
+          <div className="site-news__copy">
+            <p className="site-news__title" data-node-id="I363:416;41:65;15:41">
               今年もUni-Shareでは、新規メンバーを募集します。
-            </p>
-            <p className="site-news__text" data-node-id="2009:459">
-              ファッションが好きな人、雑誌づくりに興味がある人、何か新しいことを始めてみたい人も大歓迎です。
-              <br />
-              {" まずは気軽に新歓に遊びに来てください。"}
             </p>
           </div>
         </div>
@@ -86,9 +81,9 @@ export function SiteFooter() {
   const footerLinks = [...primaryLinks, ...secondaryLinks];
 
   return (
-    <footer className="site-footer">
-      <div className="shell site-footer__inner">
-        <nav className="site-footer__links" aria-label="Footer navigation">
+    <footer className="site-footer" data-node-id="32:118" data-name="Footer">
+      <div className="site-footer__inner" data-node-id="32:112" data-name="Content">
+        <nav className="site-footer__links" aria-label="Footer navigation" data-node-id="26:99">
           {footerLinks.map((link) =>
             link.href.startsWith("/") ? (
               <Link key={link.href} href={link.href}>
@@ -101,8 +96,8 @@ export function SiteFooter() {
             ),
           )}
         </nav>
-        <div className="site-footer__logo-row">
-          <div className="site-footer__logo">
+        <div className="site-footer__logo-row" data-node-id="38:86" data-name="Logo">
+          <div className="site-footer__logo" data-node-id="24:23">
             <img src={siteLogo} alt="Uni-Share" width={146} height={48} />
           </div>
         </div>
