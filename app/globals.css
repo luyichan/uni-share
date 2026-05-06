@@ -265,64 +265,41 @@ img {
 
 .site-news {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  height: 536px;
+  position: relative;
+  overflow: hidden;
 }
 
 .site-news__inner {
   width: 100%;
-  max-width: 1440px;
-  padding: 56px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 536px;
+  position: relative;
 }
 
 .site-news__content {
-  width: 100%;
-  max-width: 1024px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: min(1133px, calc(100% - 306px));
+  height: 180px;
+  position: absolute;
+  top: 336px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .site-news__copy {
   width: 100%;
-  max-width: 1024px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: flex-start;
 }
 
 .site-news__title {
-  margin: 0;
-  width: 100%;
-  min-height: 40px;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  font-size: 32px;
-  font-weight: 600;
+  margin: 0 auto;
+  width: min(1121px, 100%);
+  font-family: var(--font-zen-kaku), "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
   line-height: 40px;
-  letter-spacing: -1.6px;
+  letter-spacing: 0;
   font-style: normal;
   text-align: center;
-}
-
-.site-news__text {
-  margin: 0;
-  width: 100%;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
-  letter-spacing: 0.32px;
-  font-style: normal;
-  text-align: center;
-  white-space: pre-wrap;
 }
 
 .about-page {
@@ -534,21 +511,21 @@ img {
   width: 100%;
 }
 
-.collection-wall,
-.collection-backnumber {
+.collection-wall {
   width: 100%;
 }
 
 .collection-wall {
+  min-height: 2902px;
   padding: 56px 24px;
   display: flex;
   justify-content: center;
-  box-shadow: 0 4px 4px rgba(214, 214, 214, 0.25);
 }
 
 .collection-wall__inner {
   width: 100%;
   max-width: 1440px;
+  position: relative;
 }
 
 .collection-wall__grid {
@@ -573,30 +550,17 @@ img {
   display: block;
 }
 
-.collection-backnumber {
-  padding: 56px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
+.collection-video-block {
+  width: min(1063px, 100%);
+  aspect-ratio: 1063 / 850;
+  position: absolute;
+  top: 1940px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
 }
 
-.collection-backnumber__inner {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.collection-backnumber__card {
-  width: 448px;
-  height: 725px;
-  max-width: 448px;
-  box-shadow: 0 4px 4px rgba(214, 214, 214, 0.25);
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.collection-backnumber__card img {
+.collection-video-block__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -855,10 +819,22 @@ img {
 }
 
 @media (max-width: 1080px) {
+  .collection-wall {
+    min-height: 0;
+  }
+
   .collection-wall__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 56px;
     row-gap: 40px;
+  }
+
+  .collection-video-block {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 112px auto 0;
   }
 
   .site-nav {
@@ -913,11 +889,6 @@ img {
     height: auto;
     max-height: none;
     aspect-ratio: 1392 / 773;
-  }
-
-  .site-news__inner {
-    padding-top: 48px;
-    padding-bottom: 48px;
   }
 
   .about-intro {
@@ -1054,6 +1025,10 @@ img {
     padding: 40px 24px;
   }
 
+  .collection-video-block {
+    margin: 96px auto 0;
+  }
+
   .collection-wall__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 24px;
@@ -1111,8 +1086,18 @@ img {
     aspect-ratio: 1392 / 773;
   }
 
+  .site-news {
+    height: 360px;
+  }
+
   .site-news__inner {
-    padding: 40px 16px;
+    height: 360px;
+  }
+
+  .site-news__content {
+    width: calc(100% - 32px);
+    height: 120px;
+    top: 220px;
   }
 
   .home-title {
@@ -1137,15 +1122,8 @@ img {
   }
 
   .site-news__title {
-    font-size: 28px;
-    line-height: 36px;
-    letter-spacing: -1.2px;
-  }
-
-  .site-news__text {
-    font-size: 15px;
-    line-height: 22px;
-    letter-spacing: 0.24px;
+    font-size: 20px;
+    line-height: 32px;
   }
 
   .about-intro {

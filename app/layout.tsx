@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-instrument",
+});
+
+const zenKakuGothicNew = Zen_Kaku_Gothic_New({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-zen-kaku",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={instrumentSans.variable}>{children}</body>
+      <body className={`${instrumentSans.variable} ${zenKakuGothicNew.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
