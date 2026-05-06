@@ -312,65 +312,81 @@ img {
 }
 
 .about-intro,
-.about-story,
-.about-closing {
+.about-body,
+.about-image-block {
   width: 100%;
 }
 
 .about-intro {
-  padding: 224px 24px 56px;
+  padding: 224px 24px 56px 63px;
   display: flex;
-  justify-content: center;
-}
-
-.about-intro__inner,
-.about-story__inner,
-.about-closing__inner {
-  width: 100%;
-  max-width: 1392px;
+  justify-content: flex-start;
 }
 
 .about-intro__copy {
-  width: min(800px, 100%);
+  width: min(800px, calc(100vw - 87px));
 }
 
-.about-intro__text,
-.about-story__text {
+.about-body-text {
   margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  max-width: 800px;
+  font-family: var(--font-zen-kaku), "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 40px;
+  letter-spacing: 0;
   color: #000;
 }
 
-.about-intro__text {
-  letter-spacing: 0.48px;
+.about-body {
+  height: 584px;
+  padding: 56px 24px 56px 63px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.about-body__content {
+  width: min(1416px, calc(100vw - 87px));
+  height: 472px;
+  position: relative;
+}
+
+.about-body-text--wide {
+  position: absolute;
+  top: 19px;
+  left: 0;
+}
+
+.about-body__logo {
+  width: 146px;
+  height: 48px;
+  position: absolute;
+  top: 93px;
+  right: 222px;
+}
+
+.about-body__logo img {
+  width: 100%;
+  height: 100%;
 }
 
 .about-image-block {
   width: 100%;
-  padding: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.about-image-block__inner--wide,
-.about-image-block__inner--medium {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.about-image-block--medium {
+  height: 677.5px;
+  padding: 56px 24px;
 }
 
-.about-image-block__inner--wide {
-  max-width: 1392px;
-}
-
-.about-image-block__inner--medium {
-  max-width: 800px;
+.about-image-block--feature {
+  height: 1024px;
+  padding: 56px 24px;
 }
 
 .about-image {
@@ -378,128 +394,25 @@ img {
   position: relative;
 }
 
-.about-image--wide {
-  max-width: 1392px;
-  height: 773px;
-  max-height: 773px;
-  aspect-ratio: 1392 / 773;
+.about-image--medium {
+  width: min(800px, 100%);
+  height: 100%;
+  max-height: 566px;
+  aspect-ratio: 800 / 566;
 }
 
-.about-image--medium {
-  max-width: 800px;
-  height: 628px;
-  max-height: 628px;
-  aspect-ratio: 800 / 628;
+.about-image--feature {
+  width: min(1178px, 100%);
+  height: auto;
+  aspect-ratio: 1178 / 654;
 }
 
 .about-image img {
-  width: 100%;
-  height: 100%;
-}
-
-.about-image--layered {
-  overflow: hidden;
-}
-
-.about-image__background,
-.about-image__foreground {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-}
-
-.about-image__background {
   object-fit: cover;
-}
-
-.about-image__foreground {
-  object-fit: fill;
-}
-
-.about-story,
-.about-closing {
-  padding: 56px 24px;
-  display: flex;
-  justify-content: center;
-}
-
-.about-story__inner,
-.about-closing__inner {
-  align-items: flex-start;
-  gap: 24px;
-}
-
-.about-story__inner {
-  display: grid;
-  grid-template-columns: minmax(280px, 400px) minmax(0, 824px);
-  justify-content: space-between;
-}
-
-.about-closing__inner {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.about-story__lead {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  flex: 0 0 auto;
-}
-
-.about-story__title {
-  width: 100%;
-  max-width: 400px;
-  margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 40px;
-  letter-spacing: -1.6px;
-  color: #000;
-}
-
-.about-story__columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 400px));
-  align-items: flex-start;
-  gap: 24px;
-  justify-content: end;
-  min-width: 0;
-}
-
-.about-story__text {
-  width: 100%;
-  max-width: 400px;
-  letter-spacing: 0.48px;
-}
-
-.about-story__column {
-  width: 100%;
-  max-width: 400px;
-}
-
-.about-story__text--stacked {
-  min-height: 0;
-  margin-bottom: 24px;
-}
-
-.about-story__text--small {
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.32px;
-}
-
-.about-story__text--stacked-small {
-  margin-bottom: 16px;
-}
-
-.about-story__text--blank {
-  min-height: 0;
-  color: transparent;
 }
 
 .collection-page {
@@ -933,66 +846,49 @@ img {
   }
 
   .about-intro {
-    padding-top: 120px;
-    padding-bottom: 48px;
+    padding: 120px 24px 48px;
   }
 
   .about-intro__copy {
-    width: min(100%, 800px);
+    width: min(800px, 100%);
   }
 
-  .about-intro__text,
-  .about-story__text {
+  .about-body-text {
     font-size: 20px;
     line-height: 34px;
   }
 
-  .about-image--wide,
-  .about-image--medium {
+  .about-body {
     height: auto;
-    max-height: none;
+    padding: 48px 24px;
   }
 
-  .about-story,
-  .about-closing {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
-  .about-story__inner,
-  .about-closing__inner {
+  .about-body__content {
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 48px;
   }
 
-  .about-story__lead {
-    width: 100%;
-    gap: 20px;
+  .about-body-text--wide,
+  .about-body__logo {
+    position: static;
   }
 
-  .about-story__title {
-    width: 100%;
-    max-width: 400px;
+  .about-body__logo {
+    align-self: center;
   }
 
-  .about-story__columns {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+  .about-image-block--medium,
+  .about-image-block--feature {
+    height: auto;
   }
 
-  .about-story__text,
-  .about-story__column {
-    width: 100%;
-    max-width: none;
-  }
-
-  .about-story__text--small {
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.32px;
+  .about-image--medium,
+  .about-image--feature {
+    height: auto;
+    max-height: none;
   }
 
   .stocklist-group:first-child,
@@ -1146,64 +1042,27 @@ img {
     padding: 88px 16px 40px;
   }
 
-  .about-intro__text {
+  .about-body-text {
     font-size: 18px;
     line-height: 30px;
-    letter-spacing: 0.36px;
   }
 
   .about-image-block {
     padding: 16px;
   }
 
-  .about-image--wide,
-  .about-image--medium {
-    height: auto;
-    max-height: none;
-  }
-
-  .about-story,
-  .about-closing {
+  .about-body {
     padding: 40px 16px;
   }
 
-  .about-story__inner,
-  .about-closing__inner,
-  .about-story__columns {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  .about-body__content {
+    gap: 40px;
   }
 
-  .about-story__lead {
-    gap: 16px;
-  }
-
-  .about-story__title {
-    width: 100%;
-    max-width: none;
-    font-size: 28px;
-    line-height: 36px;
-    letter-spacing: -1.2px;
-  }
-
-  .about-story__text {
-    width: 100%;
-    max-width: none;
-    font-size: 18px;
-    line-height: 30px;
-    letter-spacing: 0.36px;
-  }
-
-  .about-story__text--small {
-    font-size: 15px;
-    line-height: 24px;
-    letter-spacing: 0.3px;
-  }
-
-  .about-story__text--stacked,
-  .about-story__text--stacked-small {
-    margin-bottom: 0;
+  .about-image--medium,
+  .about-image--feature {
+    height: auto;
+    max-height: none;
   }
 
   .stocklist-hero__logo {
