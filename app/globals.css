@@ -129,9 +129,9 @@ img {
   width: 100%;
 }
 
-.home-image-block,
+.home-collage-block,
 .home-bio,
-.home-wide-image-block {
+.home-event-block {
   width: 100%;
   padding-left: 24px;
   padding-right: 24px;
@@ -141,52 +141,74 @@ img {
   justify-content: center;
 }
 
-.home-image-block {
+.home-collage-block {
   height: 1044px;
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: 112px;
+  padding-bottom: 0;
 }
 
-.home-image-grid {
+.home-collage {
   width: 100%;
   max-width: 1392px;
-  min-height: 1px;
   height: 100%;
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 24px;
-  box-shadow: 0 4px 4px rgba(221, 221, 221, 0.25);
 }
 
-.home-image-cell {
+.home-collage__main,
+.home-collage__side-image {
   position: relative;
-  flex: 1 0 0;
-  min-width: 1px;
-  height: 100%;
+  overflow: hidden;
 }
 
-.home-image-cell img {
+.home-collage__main {
+  width: min(995px, calc(100% - 385px));
+  height: 932px;
+  flex: 0 1 995px;
+}
+
+.home-collage__side {
+  width: 361px;
+  height: 932px;
+  display: flex;
+  flex: 0 0 361px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.home-collage__side-image {
+  width: 361px;
+  height: 454px;
+}
+
+.home-collage img,
+.home-event-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .home-bio {
-  padding-top: 56px;
-  padding-bottom: 56px;
+  height: 604px;
+  padding-top: 212px;
+  padding-bottom: 88px;
   overflow: hidden;
 }
 
 .home-hero {
   width: 100%;
-  max-width: 1024px;
+  max-width: 1133px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 52px;
 }
 
 .home-hero__logo {
   width: 100%;
+  max-width: 1024px;
   display: flex;
   justify-content: center;
   padding: 12px 0;
@@ -196,71 +218,34 @@ img {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .home-title {
   margin: 0;
-  min-height: 40px;
-  min-width: 100%;
-  width: min-content;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  font-size: 32px;
-  font-weight: 600;
+  width: min(1121px, 100%);
+  font-family: var(--font-zen-kaku), "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
   line-height: 40px;
-  letter-spacing: -1.6px;
+  letter-spacing: -2.4px;
   font-style: normal;
   text-align: center;
+  color: #000;
 }
 
-.home-manifesto {
-  min-width: 100%;
-  width: min-content;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
-  letter-spacing: 0.32px;
-  font-style: normal;
-  text-align: center;
-  white-space: pre-wrap;
+.home-event-block {
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 
-.home-manifesto__line {
-  margin: 0 0 16px;
-  line-height: 24px;
-}
-
-.home-manifesto__line:last-of-type {
-  margin-bottom: 0;
-}
-
-.home-manifesto__line--blank {
-  color: transparent;
-}
-
-.home-wide-image-block {
-  height: 821px;
-  padding: 24px;
-}
-
-.home-wide-image {
+.home-event-image {
   flex: 0 0 auto;
-  width: 100%;
-  max-width: 1440px;
-  height: 100%;
-  max-height: 773px;
-  min-height: 1px;
+  width: min(1220px, 100%);
+  aspect-ratio: 1220 / 976;
   position: relative;
   overflow: hidden;
-}
-
-.home-wide-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: static;
 }
 
 .site-news {
@@ -803,46 +788,52 @@ img {
     padding: 0;
   }
 
-  .home-image-block {
+  .home-collage-block {
     height: auto;
-    padding-top: 40px;
+    padding-top: 56px;
     padding-bottom: 40px;
   }
 
-  .home-image-grid {
+  .home-collage {
     height: auto;
     gap: 16px;
   }
 
-  .home-image-cell {
+  .home-collage__main {
     height: auto;
-    aspect-ratio: 684 / 932;
+    aspect-ratio: 995 / 932;
+  }
+
+  .home-collage__side {
+    height: auto;
+    gap: 16px;
+  }
+
+  .home-collage__side-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 361 / 454;
   }
 
   .home-bio {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    height: auto;
+    padding-top: 96px;
+    padding-bottom: 96px;
   }
 
   .home-hero {
     gap: 32px;
   }
 
-  .home-title,
-  .home-manifesto {
+  .home-title {
     width: 100%;
-    min-width: 0;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -2px;
   }
 
-  .home-wide-image-block {
-    height: auto;
+  .home-event-block {
     padding: 24px;
-  }
-
-  .home-wide-image {
-    height: auto;
-    max-height: none;
-    aspect-ratio: 1392 / 773;
   }
 
   .about-intro {
@@ -915,22 +906,34 @@ img {
   .site-header__inner,
   .site-nav,
   .site-nav__group {
-    display: grid;
+    display: flex;
   }
 
   .site-header__inner {
-    padding: 1rem 0;
-    gap: 12px;
+    min-height: auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 16px;
+    gap: 16px;
   }
 
   .site-nav {
-    justify-items: start;
-    gap: 10px;
+    min-width: 0;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px 16px;
   }
 
   .site-nav__group {
-    gap: 14px;
-    grid-auto-flow: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px 12px;
+    font-size: 12px;
+  }
+
+  .site-nav__link {
+    line-height: 22px;
   }
 
   .collection-wall {
@@ -947,34 +950,50 @@ img {
     row-gap: 24px;
   }
 
-  .home-image-grid {
+  .home-collage {
     display: grid;
     grid-template-columns: 1fr;
     height: auto;
     gap: 16px;
   }
 
-  .home-image-cell {
+  .home-collage__main {
+    width: 100%;
     height: auto;
-    aspect-ratio: 684 / 932;
+    aspect-ratio: 995 / 932;
   }
 
-  .home-image-block,
+  .home-collage__side {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .home-collage__side-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 361 / 454;
+  }
+
+  .home-collage-block,
   .home-bio,
-  .home-wide-image-block {
+  .home-event-block {
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  .home-image-block {
+  .home-collage-block {
     padding-top: 24px;
     padding-bottom: 24px;
     height: auto;
   }
 
   .home-bio {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    height: auto;
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 
   .home-hero {
@@ -986,16 +1005,9 @@ img {
     padding-bottom: 0;
   }
 
-  .home-wide-image-block {
-    height: auto;
+  .home-event-block {
     padding-top: 16px;
     padding-bottom: 16px;
-  }
-
-  .home-wide-image {
-    height: auto;
-    max-height: none;
-    aspect-ratio: 1392 / 773;
   }
 
   .site-news {
@@ -1017,20 +1029,6 @@ img {
     line-height: 36px;
     letter-spacing: -1.2px;
     width: 100%;
-    min-width: 0;
-  }
-
-  .home-manifesto {
-    width: 100%;
-    min-width: 0;
-    font-size: 15px;
-    line-height: 22px;
-    letter-spacing: 0.24px;
-  }
-
-  .home-manifesto__line {
-    margin-bottom: 12px;
-    line-height: 22px;
   }
 
   .site-news__title {

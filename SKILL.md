@@ -12,7 +12,7 @@ description: Page update skill for the Uni-Share website. Use when changing page
 - Always verify the active branch before editing:
   `git branch --show-current`
 - Current observed branch when this note was updated:
-  `main`
+  `5/6-new-changes`
 - Earlier draft work happened on `4/25-draft`; do not assume that branch is active.
 - Changes on a draft branch do not affect `main` unless they are later merged, rebased, cherry-picked, or included in a PR.
 - Before editing, check:
@@ -72,12 +72,25 @@ Use this when the user wants a Figma node translated into production code.
 
 Rules:
 - Inspect the existing page and styling patterns before editing.
+- Fetch both Figma design context and a Figma screenshot for the exact node before implementation.
+- Create a block inventory before editing code:
+  - node id and Figma block name
+  - role: header, text, image, news, footer, navigation, etc.
+  - dimensions, padding, margins, typography, and asset requirements
+  - matching project component or CSS pattern, if one exists
+- Classify every major block as one of:
+  reuse existing component, extend existing component, create reusable component, or one-off page section.
 - Use the Figma node only as design context; convert it to the project stack and existing CSS conventions.
 - Confirm whether the implementation should affect desktop only, mobile only, or both.
-- Ask before changing shared layout rules used by multiple pages.
-- Prefer page-local CSS and existing component patterns.
+- Desktop implementation should match the Figma frame measurements as closely as possible: typography, spacing, margins, section heights, image dimensions, and placement.
+- Mobile support must be completed even when the supplied Figma node is desktop-only; use responsive adaptations that preserve hierarchy and avoid overflow.
+- Prefer reusable components for repeated blocks. Ask before changing shared layout rules used by multiple pages unless the user explicitly asks to apply the change across all pages.
+- Prefer existing component patterns. If a block appears on multiple pages or is likely to recur, create or extend a reusable component instead of writing page-specific markup/CSS.
+- Keep shared blocks centralized: header, footer, news block, repeated image blocks, repeated text blocks, and repeated text+logo blocks should not drift page by page.
+- When the user provides local assets, duplicate/copy them into the appropriate `public/site-assets/<page-or-shared>/` folder and use the duplicate in code. Do not reference source files outside the app.
 - Run `npm run lint`.
 - Run `npm run build` when code or layout changes are meaningful.
+- Validate with the browser after implementation. For full-page work, capture/check at least desktop and mobile views when practical.
 
 Recommended user wording:
 
@@ -90,6 +103,29 @@ Allowed files: app/collection/page.tsx, app/globals.css, public assets
 Do not touch: mobile, header, footer, other pages
 Ask before changing shared CSS.
 ```
+
+#### Reusable Block Targets
+
+Use these project block patterns when a Figma section matches them:
+
+- `SiteHeader`: shared navigation/header from `components/site-shell.tsx`.
+- `NewsBlock`: shared news section from `components/site-shell.tsx`; keep its spacing and typography consistent across pages.
+- `SiteFooter`: shared footer from `components/site-shell.tsx`.
+- Centered image section: one image centered in a measured section with Figma width, height, padding, and aspect ratio.
+- Large JP text section: Japanese copy block using the Figma font family, size, weight, line-height, width, and padding.
+- Text + logo section: measured text block paired with Uni-Share logo placement; make reusable if it appears beyond one page.
+
+When adding a new block pattern, first check whether it belongs in `components/site-shell.tsx` or should stay page-local. Shared visual blocks should move into components once they appear on two pages.
+
+#### Figma Measurement Table
+
+For meaningful Figma work, make a concise table in the working notes before editing. Include:
+
+```text
+Block | Node | Role | Size | Padding/Margin | Typography | Asset | Code target
+```
+
+Use that table to drive implementation and final verification. If a Figma context response is incomplete, fetch child nodes or use a screenshot to confirm the missing measurements before guessing.
 
 ## Current Session Notes
 
@@ -111,6 +147,9 @@ Ask before changing shared CSS.
 
 - If a request says “just update photos,” treat it as asset-only.
 - If the request mentions Figma, do not assume full implementation; clarify whether the user wants assets, layout, or both if the wording is ambiguous.
+- For full Figma implementation, do the block inventory first so reusable sections are identified before writing CSS.
+- Reuse or extend shared blocks before creating page-specific CSS.
+- Avoid copying the same Figma spacing values into multiple page selectors; centralize them in reusable component classes when the block recurs.
 - Before changing CSS, name the affected selectors and scope.
 - After reverting code changes, verify with:
   `git diff -- app/collection/page.tsx app/globals.css`
@@ -126,6 +165,7 @@ For asset-only:
 For code or CSS:
 - `npm run lint`
 - Browser check of the affected page.
+- For Figma page implementation, compare the Figma screenshot against local desktop layout and check a mobile viewport for overflow/stacking.
 
 For significant Next.js changes:
 - `npm run build`
