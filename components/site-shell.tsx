@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { Reveal } from "@/components/motion";
 
 const siteLogo = "/brand/unishare-logo.svg";
 
@@ -16,7 +17,7 @@ const secondaryLinks = [
 
 export function SiteHeader({ currentPath }: { currentPath: string }) {
   return (
-    <header className="site-header">
+    <Reveal as="header" className="site-header site-header-motion" delay={80} duration={0.8} y={8}>
       <div className="shell-wide site-header__inner">
         <Link href="/" className="site-logo" aria-label="Uni-Share home">
           <img src={siteLogo} alt="Uni-Share" width={146} height={48} />
@@ -53,7 +54,7 @@ export function SiteHeader({ currentPath }: { currentPath: string }) {
           </nav>
         </div>
       </div>
-    </header>
+    </Reveal>
   );
 }
 
@@ -66,11 +67,11 @@ export function NewsBlock({ className }: { className?: string }) {
     >
       <div className="site-news__inner" data-node-id="I363:416;41:65">
         <div className="site-news__content" data-node-id="I363:416;41:65;41:56">
-          <div className="site-news__copy">
+          <Reveal className="site-news__copy" delay={140} duration={0.9} y={18}>
             <p className="site-news__title" data-node-id="I363:416;41:65;15:41">
               今年もUni-Shareでは、新規メンバーを募集します。
             </p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

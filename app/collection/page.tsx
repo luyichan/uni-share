@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import { AnimatedImage } from "@/components/motion";
 import { NewsBlock, SiteFooter, SiteHeader } from "@/components/site-shell";
 
 const thumbnails = [
@@ -52,7 +52,15 @@ export default function CollectionPage() {
                   className="collection-wall__item"
                   style={{ aspectRatio: `212 / ${image.height}` }}
                 >
-                  <img src={image.src} alt="" />
+                  <AnimatedImage
+                    revealClassName="collection-wall__media"
+                    src={image.src}
+                    alt=""
+                    width={212}
+                    height={Math.round(image.height)}
+                    delay={60 + index * 54}
+                    duration={1.35}
+                  />
                 </div>
               ))}
             </div>

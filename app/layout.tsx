@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Zen_Kaku_Gothic_New } from "next/font/google";
+import { PageTransition } from "@/components/motion";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${instrumentSans.variable} ${zenKakuGothicNew.variable}`}>
-        {children}
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );

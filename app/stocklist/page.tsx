@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import type { ReactNode } from "react";
+import { AnimatedImage, Reveal, StaggerContainer } from "@/components/motion";
 import { NewsBlock, SiteFooter, SiteHeader } from "@/components/site-shell";
 
 const siteLogo = "/brand/unishare-logo.svg";
@@ -196,11 +197,11 @@ function StocklistGroup({ title, rows }: { title: string; rows: StocklistItem[][
       <h2 className="stocklist-group__title">{title}</h2>
       <div className="stocklist-group__rows">
         {rows.map((row, rowIndex) => (
-          <div className="stocklist-group__row" key={`${title}-${rowIndex}`}>
+          <StaggerContainer className="stocklist-group__row" key={`${title}-${rowIndex}`} delay={rowIndex * 80} step={46}>
             {row.map((item, index) => (
               <StocklistEntry item={item} key={`${item.handle ?? title}-${rowIndex}-${index}`} />
             ))}
-          </div>
+          </StaggerContainer>
         ))}
       </div>
     </section>
@@ -213,11 +214,13 @@ export default function StocklistPage() {
       <SiteHeader currentPath="/stocklist" />
       <main className="stocklist-main">
         <section className="stocklist-hero" data-node-id="110:216">
-          <div className="stocklist-hero__logo">
+          <Reveal className="stocklist-hero__logo" delay={80} duration={0.86} y={14}>
             <img src={siteLogo} alt="Uni-Share" width={146} height={48} />
-          </div>
+          </Reveal>
           <div className="stocklist-hero__text">
-            <h1 className="stocklist-hero__title">STOCKLIST</h1>
+            <Reveal delay={180} duration={0.9} y={18}>
+              <h1 className="stocklist-hero__title">STOCKLIST</h1>
+            </Reveal>
           </div>
         </section>
 
@@ -229,9 +232,15 @@ export default function StocklistPage() {
         <NewsBlock className="stocklist-news" />
 
         <section className="stocklist-image-block" data-node-id="622:576" data-name="Image Block 2">
-          <div className="stocklist-image-block__image" data-node-id="I622:576;38:1348">
-            <img src={stocklistImage} alt="" width={1178} height={654} />
-          </div>
+          <AnimatedImage
+            revealClassName="stocklist-image-block__image"
+            data-node-id="I622:576;38:1348"
+            src={stocklistImage}
+            alt=""
+            width={1178}
+            height={654}
+            delay={120}
+          />
         </section>
       </main>
       <SiteFooter />

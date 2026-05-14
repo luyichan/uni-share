@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { AnimatedImage, Reveal } from "@/components/motion";
 import { NewsBlock, SiteFooter, SiteHeader } from "@/components/site-shell";
 
 const siteLogo = "/brand/unishare-logo.svg";
@@ -19,39 +20,37 @@ export default function AboutPage() {
       <main className="about-main">
         <section className="about-intro" data-node-id="139:655" data-name="big body JP">
           <div className="about-intro__copy" data-node-id="I139:655;139:490">
-            <p className="about-body-text" data-node-id="I139:655;139:492">
-              {introText}
-            </p>
+            <Reveal delay={80} duration={1} y={18}>
+              <p className="about-body-text" data-node-id="I139:655;139:492">
+                {introText}
+              </p>
+            </Reveal>
           </div>
         </section>
 
         <section className="about-body" data-node-id="330:429" data-name="body 7">
           <div className="about-body__content" data-node-id="I330:429;330:421">
-            <p className="about-body-text about-body-text--wide" data-node-id="I330:429;330:419">
-              {bodyText}
-            </p>
-            <div className="about-body__logo" data-node-id="I330:429;330:422">
+            <Reveal className="about-body-text--wide" delay={80} duration={1} y={18}>
+              <p className="about-body-text" data-node-id="I330:429;330:419">
+                {bodyText}
+              </p>
+            </Reveal>
+            <Reveal className="about-body__logo" data-node-id="I330:429;330:422" delay={220} duration={0.86} y={14}>
               <img src={siteLogo} alt="Uni-Share" width={146} height={48} />
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="about-image-block about-image-block--medium" data-node-id="139:611" data-name="Image Block 1">
-          <div className="about-image about-image--medium">
-            <img src={aboutEventImage} alt="" width={800} height={566} />
-          </div>
+          <AnimatedImage revealClassName="about-image about-image--medium" src={aboutEventImage} alt="" width={800} height={566} delay={160} />
         </section>
 
         <section className="about-image-block about-image-block--feature" data-node-id="139:661" data-name="Image Block 2">
-          <div className="about-image about-image--feature">
-            <img src={aboutMagazineImage} alt="" width={1178} height={654} />
-          </div>
+          <AnimatedImage revealClassName="about-image about-image--feature" src={aboutMagazineImage} alt="" width={1178} height={654} delay={160} />
         </section>
 
         <section className="about-image-block about-image-block--feature" data-node-id="139:681" data-name="Image Block 2">
-          <div className="about-image about-image--feature">
-            <img src={aboutExhibitionImage} alt="" width={1178} height={654} />
-          </div>
+          <AnimatedImage revealClassName="about-image about-image--feature" src={aboutExhibitionImage} alt="" width={1178} height={654} delay={160} />
         </section>
 
         <NewsBlock />
